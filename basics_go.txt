@@ -1,0 +1,60 @@
+What is Go?
+Go is a statically typed, compiled language created by Google, known for simplicity and concurrency support.
+
+How do you declare a variable in Go?
+Use var x type to declare, or x := value for short declaration.
+
+What is a slice in Go?
+A slice is a dynamically-sized array-like data structure that allows flexible manipulation.
+
+How do you print output in Go?
+Use fmt.Println() to print to standard output.
+
+What is the default value of an uninitialized variable in Go?
+The default value is 0 for numeric types, false for booleans, and "" for strings.
+
+What is the defer keyword used for in Go?
+defer schedules a function to execute after the surrounding function completes.
+
+What does fmt.Println() do?
+It prints text followed by a newline to the standard output.
+
+How do you define a function in Go?
+Use func functionName(parameters) returnType { } to define a function.
+
+What is a map in Go?
+A map is a collection of key-value pairs, implemented as a hash table.
+
+How do you handle errors in Go?
+Go functions return an error as the last value, which should be checked manually.
+
+What is the difference between var and := in Go?
+var is used for explicit variable declaration with type, while := is for short declaration with type inference.
+
+How do you create an array in Go?
+Use var arr [size]type to declare an array.
+
+What is an interface in Go?
+An interface defines a set of methods; a type implements the interface if it provides the methods.
+
+What is the main function in Go?
+The main function is the entry point of a Go program, required for execution.
+
+How do you import a package in Go?
+Use import "packageName" to import external or standard libraries.
+
+What is the range keyword used for in Go?
+range is used to iterate over elements in arrays, slices, maps, or channels.
+
+What is the difference between a slice and an array in Go?
+Arrays have a fixed size, while slices are dynamically sized and more flexible.
+
+How do you perform type conversion in Go?
+Use type(variable) for explicit type conversion, like int(x) or string(y).
+
+What is the new() function used for in Go?
+new() allocates memory for a type and returns a pointer to it.
+
+What does the make() function do in Go?
+make() initializes slices, maps, or channels and returns the object.
+
