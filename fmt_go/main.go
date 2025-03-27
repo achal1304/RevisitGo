@@ -11,5 +11,4 @@ func main() {
 	str := "hello, go world"
 	upperStr := strings.ToUpper(str)
 	fmt.Println("Upper case:", upperStr)
-
 }

@@ -13,7 +13,7 @@ using System;
 public class Person
 {
     // Private fields
-    private string name;
+    private string name;                                                                                                                                                                                        
     private int age;
 
     // Public method to access private fields
