@@ -10,13 +10,13 @@ type Dog struct {
 }
 
 func (d Dog) Speak() string {
-	return fmt.Sprint("this is dog")
+	return "this is dog"
 }
 
 type Cat struct{}
 
 func (c Cat) Speak() string {
-	return fmt.Sprint("this is cat")
+	return "this is cat"
 }
 
 func GetAnimal(animal string) Animal {
