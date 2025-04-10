@@ -407,3 +407,68 @@ Then, analyze them with respective `go tool pprof` commands for each profile typ
 - Profiling tools like **pprof** are very helpful in identifying areas where your code might need optimization, allowing you to focus on performance improvements.
 
 By using these tools, you can continuously monitor and improve the performance of your Go applications.
+---
+
+To know the number of goroutines launched during benchmarking or profiling in Go, you can use the `runtime.NumGoroutine()` function, which returns the number of goroutines that currently exist. This function can be helpful in understanding how many goroutines are active at a specific point in your program.
+
+Here is an example of how to use `runtime.NumGoroutine()` during a benchmark or profiling:
+
+### Example:
+
+```go
+package main
+
+import (
+	"fmt"
+	"runtime"
+	"testing"
+)
+
+func ExampleGoroutineCount() {
+	// Start by checking the initial number of goroutines
+	initialGoroutines := runtime.NumGoroutine()
+	fmt.Printf("Initial number of goroutines: %d\n", initialGoroutines)
+
+	// Example goroutines (simulated work)
+	go func() {
+		// Simulate work
+	}()
+	go func() {
+		// Simulate work
+	}()
+
+	// Check number of goroutines after launching new ones
+	newGoroutines := runtime.NumGoroutine()
+	fmt.Printf("New number of goroutines: %d\n", newGoroutines)
+}
+
+func BenchmarkGoroutineCount(b *testing.B) {
+	// Record initial goroutine count
+	initialGoroutines := runtime.NumGoroutine()
+
+	b.ResetTimer() // Reset timer so setup code isn't included in the benchmark
+
+	// Example benchmark code that launches goroutines
+	for i := 0; i < b.N; i++ {
+		go func() {
+			// Simulate work
+		}()
+	}
+
+	// Measure goroutine count after the benchmark execution
+	finalGoroutines := runtime.NumGoroutine()
+	fmt.Printf("Initial Goroutines: %d, Final Goroutines: %d\n", initialGoroutines, finalGoroutines)
+}
+```
+
+### Steps:
+1. Use `runtime.NumGoroutine()` to get the initial number of goroutines.
+2. Launch new goroutines (e.g., using `go` keyword).
+3. Use `runtime.NumGoroutine()` again to check how many goroutines are active after launching them.
+4. In a benchmark function (`BenchmarkGoroutineCount`), compare the number of goroutines before and after the benchmark.
+
+When running the benchmarks, Go will print the results, including the number of active goroutines, as shown in the `fmt.Printf` statements.
+
+This approach is useful during benchmarking or profiling to help you track the goroutine count and understand the goroutine behavior during your test or workload execution.
+
+**GOOD READ** - https://k21academy.com/docker-kubernetes/docker-vs-virtual-machine/
