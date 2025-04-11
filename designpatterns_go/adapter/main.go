@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// adapt the old methods to implement with the new one
+
 type OldPrinter interface {
 	PrintOldMessage() string
 }
