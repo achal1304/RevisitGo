@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"os/signal"
+	"syscall"
 )
 
 func scanner_go() {
@@ -46,5 +48,44 @@ func scanner_go() {
 	// Check if there was an error during the scan
 	if err := scanner.Err(); err != nil {
 		fmt.Println("Error reading input:", err)
+	}
+}
+
+func scanner_terminate() {
+	// Create a new scanner for reading from stdin
+	scanner := bufio.NewScanner(os.Stdin)
+
+	// Set up a signal channel to catch Ctrl+C (SIGINT)
+	sigs := make(chan os.Signal, 1)
+	signal.Notify(sigs, syscall.SIGINT)
+
+	// Prompt the user to enter something
+	fmt.Println("Please enter some text (Ctrl+C to exit):")
+
+	// Start a goroutine to listen for signals
+	go func() {
+		<-sigs
+		fmt.Println("\nExiting program...")
+		os.Exit(0)
+	}()
+
+	// Use scanner to read from stdin
+	for scanner.Scan() {
+		// Read the line
+		input := scanner.Text()
+
+		// If input is a non-empty line, print it
+		if len(input) > 0 {
+			fmt.Printf("You entered: %s\n", input)
+		} else {
+			// Exit loop if input is empty (optional)
+			fmt.Println("Exiting program...")
+			break
+		}
+	}
+
+	// Check for errors during the scanning process
+	if err := scanner.Err(); err != nil {
+		fmt.Println("Error reading from stdin:", err)
 	}
 }
