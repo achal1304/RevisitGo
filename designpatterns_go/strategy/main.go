@@ -12,7 +12,7 @@ func (Add) Execute(a, b int) int { return a + b }
 
 type Multiply struct{}
 
-func (Multiply) Execute(a, b int) int { return a * b }
+func (Multiply) Execute(a, b int) int { return a * b } 
 
 func main() {
 	var strategy Strategy = Add{}
