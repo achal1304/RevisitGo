@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package example;
+
+option go_package = "./grpc";
+
+service MessagingService {
+    // Unary method
+    rpc SendMessage (MessageRequest) returns (MessageResponse);
+
+    // Server streaming method
+    rpc StreamMessages (StreamRequest) returns (stream StreamResponse);
+
+    // Client streaming method
+    rpc StreamClientMessages (stream MessageRequest) returns (MessageResponse);
+
+    // Bi-directional streaming method
+    rpc BidirectionalStream (stream MessageRequest) returns (stream MessageResponse);
+}
+
+message MessageRequest {
+    string message = 1;
+}
+
+message MessageResponse {
+    string response = 1;
+}
+
+message StreamRequest {
+    string prefix = 1;
+}
+
+message StreamResponse {
+    string message = 1;
+}
