@@ -38,6 +38,8 @@ func main() {
 	p2 := Person{Name: "Alice", Age: 30}
 	p3 := Person{Name: "Bob", Age: 25}
 
+	fmt.Println("checking using equal to ", p1 == p2, p2 == p3)
+
 	fmt.Println("p1 and p2 are equal:", compareStructs(p1, p2)) // true
 	fmt.Println("p1 and p3 are equal:", compareStructs(p1, p3)) // false
 

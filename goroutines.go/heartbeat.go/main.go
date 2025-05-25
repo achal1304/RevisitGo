@@ -21,7 +21,6 @@ func main() {
 			return
 		}
 	}
-
 }
 
 // sendHeartbeat sends a heartbeat signal every second
