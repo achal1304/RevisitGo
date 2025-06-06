@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // Quick Sort Algorithm
 func quickSort(arr []int) {
 	if len(arr) <= 1 {
@@ -34,8 +32,10 @@ func quickSort(arr []int) {
 	copy(arr, append(append(left, middle...), right...))
 }
 
-func main() {
-	arr := []int{64, 25, 12, 22, 11}
-	quickSort(arr)
-	fmt.Println("Sorted array:", arr) // Output: Sorted array: [11 12 22 25 64]
-}
+// func main() {
+// 	arr := []int{64, 25, 12, 22, 11}
+// 	// quickSort(arr)
+// 	// fmt.Println("Sorted array:", arr) // Output: Sorted array: [11 12 22 25 64]
+
+// 	fmt.Println("Mergen Sorted ", MergeSort(arr))
+// }
