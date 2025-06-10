@@ -85,7 +85,7 @@ func router() *mux.Router {
 	r := mux.NewRouter()
 
 	// Define routes
-	r.HandleFunc("/", homeHandler)                            // Route for "/"
+	r.HandleFunc("/", homeHandler).Methods("Get")             // Route for "/"
 	r.HandleFunc("/about", aboutHandler)                      // Route for "/about"
 	r.HandleFunc("/contact", contactHandler)                  // Route for "/contact"
 	r.HandleFunc("/user/{userID:[0-9]+}", userProfileHandler) // Dynamic route with userID (only digits)
