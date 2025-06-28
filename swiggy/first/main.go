@@ -1,4 +1,4 @@
-
+package first
 
 func maximumRobots(chargeTimes []int, runningCosts []int, budget int64) int {
 	numr := len(chargeTimes)
